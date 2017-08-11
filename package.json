@@ -1,0 +1,26 @@
+{
+  "name": "weekseven",
+  "version": "1.0.0",
+  "description": "Using Express and Mongoose, I created an application that organizes code snippets that can be saved for later use.",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victoriarainc/CodeSnippets.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victoriarainc/CodeSnippets/issues"
+  },
+  "homepage": "https://github.com/victoriarainc/CodeSnippets#readme"
+}
