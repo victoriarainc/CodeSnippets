@@ -21,7 +21,7 @@ const passport = require('passport');
 
 const loginRoutes = require('./routes/login');
 const snippetsRoutes = require('./routes/snippets');
-
+const searchRoutes = require('./routes/search')
 
 let url = 'mongodb://localhost:27017/code_snippets';
 
@@ -97,8 +97,8 @@ app.post('/register', (req, res) => {
 });
 
 app.use('/', loginRoutes);
-
 app.use('/', snippetsRoutes);
+app.use('/', searchRoutes);
 //APP
 mongoose.connect(url, (err, connection) => {
   if (!err) {

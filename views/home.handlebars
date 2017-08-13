@@ -7,6 +7,10 @@
   <body>
     <a href="/logout">Logout</a>
     <div class="wrapper">
+      <form class="search" action="/search" method="get">
+        <input type="text" name="mySnippets">
+        <button>Search</button>
+      </form>
       {{#snippets}}
         <a href="/snippets/add?id={{ _id }}"><p>{{title}}</p></a>
       {{/snippets}}
