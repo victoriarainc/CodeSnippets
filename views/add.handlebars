@@ -17,6 +17,9 @@
         {{#if snippet._id}}
           <input type="hidden" name="_id" value="{{snippet._id}}" />
         {{/if}}
+
+        <span><a href="/deleteSnippet/?id={{snippet._id}}">Delete</a></span>
+
         <button name="add"> + </button>
       </form>
     </div>

@@ -45,8 +45,8 @@ routes.post('/snippets', (req, res) => {
   });
 });
 
-routes.get('/deleteItem', (req, res) => {
-  Item.findById(req.query.id).remove()
+routes.get('/deleteSnippet', (req, res) => {
+  Snippet.findById(req.query.id).remove()
   // then redirect to the homepage
     .then(() => res.redirect('/'));
 });
