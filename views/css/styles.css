@@ -1,0 +1,17 @@
+body {
+  color: blue;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+}
+
+form {
+  background-color: grey;
+  padding: 8%;
+  border-radius: 15px;
+}
