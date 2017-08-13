@@ -70,6 +70,8 @@ const requireLogin = (req, res, next) => {
 };
 
 app.get('/', requireLogin, function(req, res) {
+
+  // TODO: Find the active template
   Snippet.find({author: req.user.username})
     .then((snippets) => {
       res.render('home', {user: req.user, snippets: snippets})

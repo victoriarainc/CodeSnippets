@@ -26,9 +26,9 @@ userSchema.methods.validatePassword = function(password) {
 };
 
 // static method to authenticate a user
-userSchema.statics.authenticate = function(email, password) {
+userSchema.statics.authenticate = function(username, password) {
   return (
-    User.findOne({ email: email })
+    User.findOne({ username: username })
       // validate the user's password
       .then(user => {
         if (user && user.validatePassword(password)) {
