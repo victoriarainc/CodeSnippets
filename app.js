@@ -8,8 +8,45 @@ const app = express();
 
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
+const flash = require('express-flash-messages');
+
+const mongoose = require('mongoose');
+const User = require('./models/user');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
+const loginRoutes = require('./routes/login');
+
+let url = 'mongodb://localhost:27017/code_snippets';
+
 
 // =========BOILER PLATE===========
+
+// for passport
+passport.use(new LocalStrategy(function(username, password, done) {
+  User.authenticate(username, password)
+  // success!
+    .then(user => {
+    if (user) {
+      done(null, user);
+    } else {
+      done(null, null, {message: 'There was no user with this email and password.'});
+    }
+  })
+  // there was a problem
+    .catch(err => done(err));
+}));
+
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+
+passport.deserializeUser(function(user_id, done) {
+  User.findById(user_id, (err, user) => {
+    // TODO: Error Handling
+    done(null, user.findById(user));
+  });
+});
 
 // for handlebars
 app.engine('handlebars', exphbs());
@@ -17,87 +54,59 @@ app.set('views', './views');
 app.set('view engine', 'handlebars');
 
 // for express-session
-app.use(
-  session({
-    //in the future this is not how to store passwords
-    secret: 'CROWpoe',
-    resave: false, // doesn't save without changes
-    saveUninitialized: true // creates a session
-  })
-);
+app.use(session({
+  //in the future this is not how to store passwords
+  secret: 'CROWpoe',
+  resave: false, // doesn't save without changes
+  saveUninitialized: true // creates a session
+}));
 
 // for express
 app.use(express.static('public'));
 
 //for bodyParser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 // for express-validator
 app.use(expressValidator());
 
+//for passport
+app.use(passport.initialize());
+
+//for passport session
+app.use(passport.session());
+
+//for flash
+app.use(flash());
+
 // ============= ENDPOINTS ===============
 
-// path to home
-app.get('/', function(req, res) {
-  //if the user's info is not stored redirect
-   if (!req.session.victim) {
-     res.redirect('/login')
-     //if the user is recognized render the home page
-   } else {
-    res.render('home', {
-      username: req.session.victim
-    });
+app.get('/register', (req, res) => {
+  res.render('register');
+});
+
+app.post('/register', (req, res) => {
+  let user = new User(req.body);
+  user.provider = 'local';
+  user.setPassword(req.body.password);
+
+  user.save()
+  // if good...
+    .then(() => res.redirect('/'))
+  // if bad...
+    .catch(err => console.log(err));
+});
+
+app.use('/', loginRoutes);
+
+//APP
+mongoose.connect(url, (err, connection) => {
+  if (!err) {
+    console.log('connected to mongo');
   }
-});
-
-// path to login
-app.get('/login', function(req, res) {
-  res.render('login')
-});
-
-// send information after it is submitted
-app.post('/login', function(req, res) {
-  let victim = req.session.body;
-
-  // // ============== VALIDATION ================
-  req.checkBody('username', 'Username is required').notEmpty();
-  req.checkBody('password', 'Password please!').notEmpty();
-
-  let errors = req.validationErrors();
-
-  if (errors) {
-    //if there is an error print it
-    res.render('login', {errors: errors});
-  } else {
-    //otherwise
-    let users = topsecret.filter(function(userCheck) {
-      return userCheck.username === req.body.username;
-    });
-
-    //if that user does not exist return an error on the login page
-    if (users.length === 0) {
-      let not_a_user = "User not found. Please create an account."
-      res.render('login', {notAUserMessage: not_a_user});
-      return;
-    }
-
-    let user = users[0];
-
-    //if the passwords match direct to the home page
-    if (user.password === req.body.password) {
-      req.session.victim = user.username;
-      res.redirect('/');
-    } else {
-        let not_ur_password = "Whoops. Try again!"
-        res.render('login', {something: not_ur_password});
-      }
-  }
-});
-
-// ============== LISTEN =================
-app.listen(3000, function() {
-  console.log('Your app is running!')
+  // ============== LISTEN =================
+  app.listen(3000, function() {
+    console.log('Your app is running!')
+  });
 });
