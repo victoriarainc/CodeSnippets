@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "express-flash-messages": "^0.1.1",

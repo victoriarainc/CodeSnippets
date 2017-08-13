@@ -11,11 +11,17 @@ const expressValidator = require('express-validator');
 const flash = require('express-flash-messages');
 
 const mongoose = require('mongoose');
+const bluebird = require('bluebird');
+mongoose.Promise = bluebird;
+
 const User = require('./models/user');
+const Snippet = require('./models/snippet');
+
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const loginRoutes = require('./routes/login');
+
 
 let url = 'mongodb://localhost:27017/code_snippets';
 

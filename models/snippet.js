@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-// const findOrCreate = require('mongoose-findorcreate');
 
 // get a reference to Schema
 const Schema = mongoose.Schema;
 
-// create a schema for a user
+// create a schema for a snippet
 const snippetSchema = new Schema({
   id : {type: String},
   title : {type: String, required: true},
@@ -16,7 +15,7 @@ const snippetSchema = new Schema({
   author: {type: String, required: true}
 });
 
-// create a model for a User
+// create a model for a Snippet
 const Snippet = mongoose.model('Snippet', snippetSchema);
 
 module.exports = Snippet;
