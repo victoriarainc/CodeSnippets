@@ -1,6 +1,38 @@
+// PACKAGES
 const express = require('express');
 const routes = express.Router();
-const passport = require('passport')
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('../models/user');
+
+
+
+//BOILERPLATE
+
+// for passport
+passport.use(new LocalStrategy(function(username, password, done) {
+  User.authenticate(username, password)
+  // success!
+    .then(user => {
+    if (user) {
+      done(null, user);
+    } else {
+      done(null, null, {message: 'There was no user with this email and password.'});
+    }
+  })
+  // there was a problem
+    .catch(err => done(err));
+}));
+
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => done(null, user));
+});
+
+// LOGIN
 
 // local login form
 routes.get('/login', (req, res) => {

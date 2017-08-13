@@ -18,7 +18,6 @@ const User = require('./models/user');
 const Snippet = require('./models/snippet');
 
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 
 const loginRoutes = require('./routes/login');
 
@@ -27,32 +26,6 @@ let url = 'mongodb://localhost:27017/code_snippets';
 
 
 // =========BOILER PLATE===========
-
-// for passport
-passport.use(new LocalStrategy(function(username, password, done) {
-  User.authenticate(username, password)
-  // success!
-    .then(user => {
-    if (user) {
-      done(null, user);
-    } else {
-      done(null, null, {message: 'There was no user with this email and password.'});
-    }
-  })
-  // there was a problem
-    .catch(err => done(err));
-}));
-
-passport.serializeUser(function(user, done) {
-  done(null, user._id);
-});
-
-passport.deserializeUser(function(user_id, done) {
-  User.findById(user_id, (err, user) => {
-    // TODO: Error Handling
-    done(null, user.findById(user));
-  });
-});
 
 // for handlebars
 app.engine('handlebars', exphbs());
@@ -87,6 +60,22 @@ app.use(passport.session());
 app.use(flash());
 
 // ============= ENDPOINTS ===============
+
+const requireLogin = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+};
+
+app.get('/', requireLogin, function(req, res) {
+  Snippet.find({author: req.user.username})
+    .then((snippets) => {
+      res.render('home', {user: req.user, snippets: snippets})
+    })
+    .catch(err => response.send('Can not find snippets'));
+});
 
 app.get('/register', (req, res) => {
   res.render('register');
