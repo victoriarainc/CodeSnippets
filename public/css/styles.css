@@ -1,5 +1,6 @@
 body {
-  color: blue;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .wrapper {
@@ -8,10 +9,11 @@ body {
   align-items: center;
   align-content: center;
   align-self: center;
+  flex-flow: column nowrap;
 }
 
 form {
   background-color: grey;
-  padding: 8%;
+  padding: 10%;
   border-radius: 15px;
 }
