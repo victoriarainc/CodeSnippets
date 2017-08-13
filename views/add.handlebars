@@ -8,11 +8,15 @@
     <a href="/logout">Logout</a>
     <div class="wrapper">
       <form class="" action="/snippets" method="post">
-        <input type="text" name="title" value="" placeholder="Title"/>
-        <input type="textarea" name="body" value="" placeholder="Body"/>
-        <input type="textarea" name="notes" value="" placeholder="Notes"/>
-        <input type="text" name="language" value="" placeholder="Language"/>
-        <input type="text" name="tags" value="" placeholder="Tags"/>
+        <input type="text" name="title" value="{{snippet.title}}" placeholder="Title"/>
+        <input type="textarea" name="body" value="{{snippet.body}}" placeholder="Body"/>
+        <input type="textarea" name="notes" value="{{snippet.notes}}" placeholder="Notes"/>
+        <input type="text" name="language" value="{{snippet.language}}" placeholder="Language"/>
+        <input type="text" name="tags" value="{{snippet.tags}}" placeholder="Tags"/>
+
+        {{#if snippet._id}}
+          <input type="hidden" name="_id" value="{{snippet._id}}" />
+        {{/if}}
         <button name="add"> + </button>
       </form>
     </div>

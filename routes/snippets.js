@@ -4,9 +4,27 @@ const User = require('../models/user');
 const Snippet = require('../models/snippet')
 const mongoose = require('mongoose');
 
+const requireLogin = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+};
+
+routes.use(requireLogin);
 //retrieves a form
 routes.get('/snippets/add', (req, res) => {
-  res.render('add');
+
+  // Check if req.query.id exists.  If so, load that snippet from mongo
+  // and then send that object to the form.
+    if (req.query.id) {
+      Snippet.findById(req.query.id)
+        // render form with this item
+        .then(snippet => res.render('add', { snippet: snippet }));
+    } else {
+      res.render('add');
+    }
 });
 
 routes.post('/snippets', (req, res) => {

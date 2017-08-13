@@ -8,7 +8,7 @@
     <a href="/logout">Logout</a>
     <div class="wrapper">
       {{#snippets}}
-        <p>{{title}}</p>
+        <a href="/snippets/add?id={{ _id }}"><p>{{title}}</p></a>
       {{/snippets}}
       <form class="" action="/snippets/add" method="get">
         <button name="add"> + </button>
