@@ -9,15 +9,15 @@
     <div class="wrapper">
     <h1>Login</h1>
 
-    {{#if failed}}
-    Login failed. <a href="/register">Not a member? Register here.</a>.
-    {{/if}}
-
     <form class="login" action="/login" method="post">
-      Username: <input type="text" name="username" /><br />
-      Password: <input type="password" name="password" /><br />
+      <input type="text" name="username" placeholder="Username" /><br />
+      <input type="password" name="password" placeholder="Password" /><br />
       <button>Login</button>
     </form>
+
+        {{#if failed}}
+        Login failed. <a href="/register">Not a member? Register here.</a>.
+        {{/if}}
     </div>
 
   </body>

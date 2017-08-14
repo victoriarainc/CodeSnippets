@@ -1,8 +1,12 @@
+/*======= UNIVERSAL =======*/
+
 body {
   display: flex;
   flex-flow: column nowrap;
   font-family: monospace;
-  font-size: 18px;
+  font-size: 20px;
+  padding: 5px;
+  color: #005E50;
 }
 
 button {
@@ -12,12 +16,9 @@ button {
   margin: 5px 0;
 }
 
-input {
-  margin: 5px;
-  width: auto;
-}
-
 .wrapper {
+  width: 75%;
+  margin: 50px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,26 +27,64 @@ input {
   flex-flow: column nowrap;
 }
 
+/*======= LOGIN ========*/
+
 .login {
   font-weight: lighter;
   color: 005E50;
   background-color: #81E6D3;
-  padding: 10%;
-  border-radius: 15px;
+  padding: 2%;
+  box-shadow: 0 1px 4px #C1C1C1;
+
 }
 
+.login input {
+  width: 500px;
+  height: 26px;
+  padding-top: 2%;
+  margin: 5px 0;
+}
+
+/*====== HOME/SEARCH ========*/
+
 #snippets {
-  margin: 2%;
   font-size: 28px;
   color: white;
   background-color: #81E6D3;
   padding: 5%;
-  border-radius: 15px;
   width: 80%;
   height: auto;
+  margin-top: 10px;
 }
 
-/*====== ADD/EDIT PAGE ======*/
+#snippets a {
+  margin: 10px 0;
+  padding: 1px 10px;
+  border: 3px solid #C2F2E9;
+  text-decoration: none;
+  color: white;
+  background-color: #00B294;
+}
+
+#snippets a.hover {
+  color: #C2F2E9;
+}
+
+#snippets a.active {
+  color: #008272;
+}
+
+form.add button{
+  background-color: #008272;
+  width: 10%;
+}
+
+form.search input {
+  width: 50%;
+  height: 20px;
+}
+
+/*====== ADD/EDIT/DELETE ======*/
 
 #addWrapper {
   width: 100%;
@@ -55,7 +94,6 @@ form.add {
   display: flex;
   flex-flow: column nowrap;
   background-color: #81E6D3;
-  border-radius: 15px;
   padding: 5%;
   width: 70%;
   margin-top: 5px;
@@ -73,4 +111,21 @@ input#body {
 
 input#notes {
   height: 60px;
+}
+
+span.delete {
+  margin: 3px 0;
+  width: 12%;
+  background-color: #00CEA6;
+  border: 1px solid #00B294;
+  padding: 1%;
+}
+
+span.delete a {
+  color: white;
+  text-decoration: none;
+}
+
+.addButton {
+  margin-left: auto;
 }

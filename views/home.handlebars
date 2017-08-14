@@ -10,16 +10,17 @@
 <body>
   <a href="/logout">Logout</a>
   <form class="search" action="/search" method="get">
-    <input type="text" name="mySnippets">
+    <input class="search" type="text" name="mySnippets">
     <button>Search</button>
   </form>
   <div class="wrapper" id="snippets">
+    <h3> {{user.name}}'s Snippets </h3>
     {{#snippets}}
       <a href="/snippets/add?id={{ _id }}">
         <p class="title">{{title}}</p>
       </a>
     {{/snippets}}
-    <form class="" action="/snippets/add" method="get">
+    <form class="add" action="/snippets/add" method="get">
       <button name="add"> + </button>
     </form>
   </div>
