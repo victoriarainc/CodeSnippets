@@ -4,9 +4,10 @@ body {
   display: flex;
   flex-flow: column nowrap;
   font-family: monospace;
-  font-size: 20px;
+  font-size: 18px;
   padding: 5px;
   color: #005E50;
+  align-items: center;
 }
 
 button {
@@ -47,8 +48,13 @@ button {
 
 /*====== HOME/SEARCH ========*/
 
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
 #snippets {
-  font-size: 28px;
   color: white;
   background-color: #81E6D3;
   padding: 5%;

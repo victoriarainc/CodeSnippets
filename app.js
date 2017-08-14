@@ -98,6 +98,7 @@ app.post('/register', (req, res) => {
 app.use('/', loginRoutes);
 app.use('/', snippetsRoutes);
 app.use('/', searchRoutes);
+
 //APP
 mongoose.connect(url, (err, connection) => {
   if (!err) {

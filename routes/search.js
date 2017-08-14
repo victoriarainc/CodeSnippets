@@ -18,7 +18,7 @@ routes.get('/search', (req, res) => {
   let search = req.query.mySnippets;
 
  Snippet.find({author: req.user.username, $or: [{'language': search}, {tags: search}]})
- .then(snippets => res.render('home', {snippets: snippets}))
+ .then(snippets => res.render('search', {snippets: snippets}))
  .catch(err => res.send('Can not find snippet.'));
 });
 

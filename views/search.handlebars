@@ -15,10 +15,8 @@
     <input class="search" type="text" name="mySnippets">
     <button>Search</button>
   </form>
+  
   </div>
-
-  <h1> {{user.name}}'s Snippets </h1>
-
   <div class="wrapper" id="snippets">
     {{#snippets}}
       <a href="/snippets/add?id={{ _id }}">
