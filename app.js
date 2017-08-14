@@ -77,7 +77,7 @@ app.get('/', requireLogin, function(req, res) {
     .then((snippets) => {
       res.render('home', {user: req.user, snippets: snippets})
     })
-    .catch(err => response.send('Can not find snippets'));
+    .catch(err => res.send('Can not find snippets'));
 });
 
 app.get('/register', (req, res) => {

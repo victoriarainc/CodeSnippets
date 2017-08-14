@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Home Page</title>
+    <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
     <a href="/logout">Logout</a>
     <div class="wrapper">
-      <form class="" action="/snippets" method="post">
+      <form class="add" action="/snippets" method="post">
         <input type="text" name="title" value="{{snippet.title}}" placeholder="Title"/>
         <input type="textarea" name="body" value="{{snippet.body}}" placeholder="Body"/>
         <input type="textarea" name="notes" value="{{snippet.notes}}" placeholder="Notes"/>

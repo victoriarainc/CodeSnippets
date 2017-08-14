@@ -1,6 +1,18 @@
 body {
   display: flex;
   flex-flow: column nowrap;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+button {
+  color: white;
+  background-color: #00B294;
+}
+
+form.add {
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .wrapper {
@@ -12,8 +24,21 @@ body {
   flex-flow: column nowrap;
 }
 
-form {
-  background-color: grey;
+.login {
+  font-weight: lighter;
+  color: 005E50;
+  background-color: #81E6D3;
   padding: 10%;
   border-radius: 15px;
+}
+
+#snippets {
+  margin: 2%;
+  font-size: 28px;
+  color: white;
+  background-color: #81E6D3;
+  padding: 5%;
+  border-radius: 15px;
+  width: 80%;
+  height: auto;
 }
