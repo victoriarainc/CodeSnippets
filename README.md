@@ -10,11 +10,9 @@ tags -- that is, user-defined words or phrases that classify the code, like "aut
 
 The application includes:
 
-a comprehensive set of tests for all controllers and models
 registration and login
 the ability to create a snippet
 the ability to see a list of all your snippets
 the ability to see a list of all your snippets for a specific language
 the ability to see a list of all your snippets for a specific tag
 allow you to look at an individual snippet
-an API to allow for creating and viewing of snippets as listed above
