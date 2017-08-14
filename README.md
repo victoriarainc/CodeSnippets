@@ -16,3 +16,13 @@ the ability to see a list of all your snippets
 the ability to see a list of all your snippets for a specific language
 the ability to see a list of all your snippets for a specific tag
 allow you to look at an individual snippet
+
+SAMPLE LOGIN & PASSWORDS:
+Username: cupcake
+Password: meow
+
+Username: alice
+Password: meow
+
+Username: reeses
+Password: meow
