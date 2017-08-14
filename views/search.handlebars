@@ -17,7 +17,7 @@
   </form>
     <a href="/">Home</a>
   </div>
-  
+
   <div class="wrapper" id="snippets">
     {{#snippets}}
       <a href="/snippets/add?id={{ _id }}">
@@ -25,7 +25,7 @@
       </a>
     {{/snippets}}
     <form class="add" action="/snippets/add" method="get">
-      <button name="add"> + </button>
+      <button class='addButton' name="add"> + </button>
     </form>
   </div>
 </body>

@@ -10,18 +10,22 @@
     <a href="/">Home</a>
     <div class="wrapper" id="addWrapper">
       <form class="add" action="/snippets" method="post">
-        Title
+        <label for="text">Title</label>
         <input class='add' id='text' type="text" name="title" value="{{snippet.title}}" placeholder="Title"/>
-        Body
+
+        <label for="body">Body</label>
         <input class='add' id='body' type="textarea" name="body" value="{{snippet.body}}" placeholder="Body"/>
-        Notes
+
+        <label for="notes">Notes</label>
         <input class='add' id='notes' type="textarea" name="notes" value="{{snippet.notes}}" placeholder="Notes"/>
-        Language
+
+        <label for="language">Language</label>
         <input class='add' id='language' type="text" name="language" value="{{snippet.language}}" placeholder="Language"/>
-        Tags
-        <input class='add' id='tags' type="text" name="tags" value="{{snippet.tags}}" placeholder="Tags"/>
-        <input class='add' id='tags' type="text" name="tags" value="{{snippet.tags}}" placeholder="Tags"/>
-        <input class='add' id='tags' type="text" name="tags" value="{{snippet.tags}}" placeholder="Tags"/>
+
+        <label for="tags">Tags</label>
+          {{#snippet.tags}}
+            <input class='add' type="array" id="tag{{@index}}" name="tag[{{@index}}]" value="{{.}}" />
+          {{/snippet.tags}}
 
         {{#if snippet._id}}
           <input type="hidden" name="_id" value="{{snippet._id}}" />

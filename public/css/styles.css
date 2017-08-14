@@ -28,6 +28,10 @@ button {
   flex-flow: column nowrap;
 }
 
+.addButton {
+  margin-left: auto;
+}
+
 /*======= LOGIN ========*/
 
 .login {
@@ -130,8 +134,4 @@ span.delete {
 span.delete a {
   color: white;
   text-decoration: none;
-}
-
-.addButton {
-  margin-left: auto;
 }
