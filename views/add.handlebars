@@ -24,8 +24,10 @@
 
         <label for="tags">Tags</label>
           {{#snippet.tags}}
-            <input class='add' type="array" id="tag{{@index}}" name="tag[{{@index}}]" value="{{.}}" />
+            <input class='add' type="array" id="tag{{@index}}" name="tags[{{@index}}]" value="{{.}}" />
           {{/snippet.tags}}
+          <input class='add' type="array" id="tag" name="tags[]" value="" />
+
 
         {{#if snippet._id}}
           <input type="hidden" name="_id" value="{{snippet._id}}" />

@@ -33,10 +33,16 @@ routes.post('/snippets', (req, res) => {
   }
 
   req.body.author = req.user.username;
+  console.log(req.body);
 
-  Snippet.findByIdAndUpdate(req.body._id, req.body, {upsert: true}).then(() => res.redirect('/'))
+  req.body.tags = req.body.tags.filter((item) => {
+    return item !== ''
+  });
+
+  Snippet.findByIdAndUpdate(req.body._id, req.body, {upsert: true})
+  .then(() => res.redirect('/'))
   // catch validation errors
-    .catch(err => {
+  .catch(err => {
     console.log(err);
     res.render('snippets', {
       errors: err.errors,

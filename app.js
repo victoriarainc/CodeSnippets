@@ -46,7 +46,7 @@ app.use(express.static('public'));
 
 //for bodyParser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 // for express-validator
 app.use(expressValidator());
