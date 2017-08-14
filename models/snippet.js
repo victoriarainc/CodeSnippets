@@ -11,7 +11,7 @@ const snippetSchema = new Schema({
   body : {type: String, required: true},
   notes: {type: String},
   language: {type: String, required: true},
-  tags: {type: String, required: true},
+  tags: {type: Array, required: true},
   author: {type: String, required: true}
 });
 
