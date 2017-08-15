@@ -9,7 +9,7 @@
     <a href="/logout">Logout</a>
     <a href="/">Home</a>
     <div class="wrapper" id="addWrapper">
-      <form class="add" action="/snippets" method="post">
+      <form id="snippet_form" class="add" action="/snippets" method="post">
         <label for="text">Title</label>
         <input class='add' id='text' type="text" name="title" value="{{snippet.title}}" placeholder="Title"/>
 
@@ -23,20 +23,28 @@
         <input class='add' id='language' type="text" name="language" value="{{snippet.language}}" placeholder="Language"/>
 
         <label for="tags">Tags</label>
-          {{#snippet.tags}}
-            <input class='add' type="array" id="tag{{@index}}" name="tags[{{@index}}]" value="{{.}}" />
-          {{/snippet.tags}}
-          <input class='add' type="array" id="tag" name="tags[]" value="" />
-
-
-        {{#if snippet._id}}
+          <div id="tag_container">
+            {{#snippet.tags}}
+            <div class="tag_wrapper">
+              <input class='add tags' type="array" id="tag{{@index}}" name="tags[]" value="{{.}}" />
+              <button type="button" class="tag_remove tag_button">-</button>
+            </div>
+            {{/snippet.tags}}
+          </div>
+          <div class="tag_wrapper">
+            <input class='add tags' type="array" id="tag_add" value="" />
+            <button type="button" class="tag_add tag_button">+</button>
+          </div>
+         {{#if snippet._id}}
           <input type="hidden" name="_id" value="{{snippet._id}}" />
         {{/if}}
+          <div class="delete_or_add">
+            <span class="delete"><a href="/deleteSnippet/?id={{snippet._id}}">Delete Snippet</a></span>
+            <button class="updateButton" name="add"> Submit </button>
+          </div>
 
-        <span class="delete"><a href="/deleteSnippet/?id={{snippet._id}}">Delete</a></span>
-
-        <button class="addButton" name="add"> + </button>
       </form>
     </div>
+    <script src="/js/snippets.js"></script>
   </body>
 </html>
