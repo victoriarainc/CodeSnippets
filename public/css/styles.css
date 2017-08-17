@@ -3,7 +3,8 @@
 body {
   display: flex;
   flex-flow: column nowrap;
-  font-family: monospace;
+  font-family: sans-serif;
+  font-size: lighter;
   font-size: 18px;
   padding: 5px;
   color: #005E50;
@@ -100,6 +101,10 @@ form.search input {
   width: 100%;
 }
 
+.input {
+  margin: 15px 0;
+}
+
 form.add {
   display: flex;
   flex-flow: column nowrap;
@@ -111,8 +116,16 @@ form.add {
 
 input.add {
   width: 100%;
-  height: 30px;
+  height: auto;
   margin: 5px 0;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  resize: none;
 }
 
 input#body {
