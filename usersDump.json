@@ -1,3 +1,0 @@
-{"_id":{"$oid":"59909655ccf0e1484ed57bfd"},"passwordHash":"$2a$08$u3cPMAOvZjJLDwP5yvoSsOYL.30/PzkEeyLizgpZ.Jry3Lfj3syqS","username":"cupcake","name":"Cupcake","email":"cup@cake.com","__v":0}
-{"_id":{"$oid":"5991f682904fe948d2bb65a4"},"passwordHash":"$2a$08$I1kHW/ARCDr2BZfh9vwZlefMum6dpRlubU3rDOGEUqSMbyZzklsCa","username":"alice","name":"Alice","email":"alice@cat.com","__v":0}
-{"_id":{"$oid":"59920d0b8793f0588ea9130f"},"passwordHash":"$2a$08$RdOebBUoB2ecBa/3A2vKDOXDnciyB6tsaggln.eQ0wLfG3sFoUJSG","username":"reeses","name":"Reese's Peanut Butter Cup","email":"reese@cat.com","__v":0}
