@@ -1,28 +1,38 @@
-Using Express and Mongoose, I created an application that organizes code snippets that can be saved for later use.
+# CodeSnippets
 
-Snippets have:
+## Project Overview
 
-a title
-a body (the code)
-optional notes
-a language
-tags -- that is, user-defined words or phrases that classify the code, like "authentication", "front-end", "middleware", or "database".
+Web application that authenticates login upon arrival. If failed, routes user to a registration form. Once logged in, users have available to them a list of code snippets fetched from a Mongo database. Users may also create new code snippets and edit existing snippets as well.
 
-The application includes:
+### Objectives
+- Create an app that stores and saves code snippets
+- Code snippets can be edited
+- Login is authenticated
 
-registration and login
-the ability to create a snippet
-the ability to see a list of all your snippets
-the ability to see a list of all your snippets for a specific language
-the ability to see a list of all your snippets for a specific tag
-allow you to look at an individual snippet
+### The Project Team
+* **Victoria Coleman**
+    * *Developer, Designer*
 
-SAMPLE LOGIN & PASSWORDS:
-Username: cupcake
-Password: meow
+## Future State and Roadmap
+* Upgrade design and user experience as well as accessibility and responsiveness.
+* Expand authentication to include Facebook login.
 
-Username: alice
-Password: meow
+## Tools
 
-Username: reeses
-Password: meow
+### Trello
+Implemented Agile development in daily sprints.
+
+### Balsamiq
+A mockup tool to plan, integrate, and develop layouts.
+
+### Node and Express
+Routes and engineers requests for information.
+
+### Mongo and Mongoose
+Stores and saves the available data.
+
+### Handlebars
+Templates visual experience.
+
+### Git and GitHub
+Source control for the lifespan of the project.
