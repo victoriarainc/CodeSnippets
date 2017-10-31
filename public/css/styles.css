@@ -32,6 +32,8 @@ button {
 
 .login {
   font-weight: lighter;
+  display: flex;
+  flex-direction: column;
   color: 005E50;
   background-color: #81E6D3;
   padding: 2%;
@@ -41,7 +43,7 @@ button {
 
 .login input {
   width: 500px;
-  height: 26px;
+  height: 12px;
   padding-top: 2%;
   margin: 5px 0;
 }
@@ -57,14 +59,14 @@ button {
 #snippets {
   color: white;
   background-color: #81E6D3;
-  padding: 5%;
-  width: 80%;
+  padding: 2% 15%;
+  width: 100%;
   height: auto;
   margin-top: 10px;
 }
 
 #snippets a {
-  margin: 10px 0;
+  margin: 10px 20px;
   padding: 1px 10px;
   border: 3px solid #C2F2E9;
   text-decoration: none;
