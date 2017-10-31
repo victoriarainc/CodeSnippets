@@ -56,7 +56,7 @@ button {
 .nav {
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  align-self: flex-end;
 }
 
 #snippets {
