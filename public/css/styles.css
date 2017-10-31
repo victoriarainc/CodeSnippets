@@ -97,8 +97,9 @@ form.search input {
   width: 100%;
 }
 
-.input {
-  margin: 15px 0;
+.addInput {
+  margin: 15px 10px;
+  width: 80%;
 }
 
 form.add {
@@ -132,8 +133,8 @@ input#notes {
 }
 
 input.tags {
-  width: 100%;
-  margin-right: 3px;
+  width: 80%;
+  margin-right: 30px;
 }
 
 button.tag_button {
@@ -149,13 +150,14 @@ button.tag_button {
 
 span.delete {
   margin: 3px 0;
-  width: 12%;
+  width: 65px;
   background-color: #00CEA6;
   border: 2px solid #00B294;
   padding: 1%;
 }
 
 span.delete a {
+  width: 35px;
   color: white;
   text-decoration: none;
 }
@@ -164,4 +166,8 @@ span.delete a {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+.updateButton {
+  width: 70px;
 }
