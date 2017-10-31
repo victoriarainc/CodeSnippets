@@ -17,12 +17,6 @@
         <a href="/logout" class='button'>Logout</a>
       </div>
     </div>
-    <div class='row'>
-      <form class="search" action="/search" method="get">
-        <input class="search" type="text" name="mySnippets">
-        <button>Search</button>
-      </form>
-    </div>
   </div>
 
   <div class='container'>
@@ -30,20 +24,31 @@
     <h2> {{user.name}}'s Snippets </h2>
 
     <div class="row" id="snippets">
-      {{#snippets}}
-        <a href="/snippets/add?id={{ _id }}">
-          <p class="title">{{title}}</p>
-        </a>
-      {{/snippets}}
+      <div class='six columns'>
+        {{#snippets}}
+          <a href="/snippets/add?id={{ _id }}">
+            <p class="title">{{title}}</p>
+          </a>
+        {{/snippets}}
+      </div>
     </div>
 
     <div class='row'>
-      <div class='five columns'>
+      <div class='six columns'>
         <div class='u-pull-right'>
           <form action="/snippets/add" method="get">
             <button name="add"> + </button>
           </form>
         </div>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='six columns'>
+        <form class='u-pull-right' action="/search" method="get">
+          <input type="text" name="mySnippets">
+          <button>Search</button>
+        </form>
       </div>
     </div>
 
