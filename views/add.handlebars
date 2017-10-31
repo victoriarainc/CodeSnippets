@@ -22,7 +22,7 @@
   <div class="container">
 
     <h2>New Snippet</h2>
-    
+
     <form id="snippet_form" class="add" action="/snippets" method="post">
 
       <div class='row'>
@@ -52,25 +52,31 @@
       </div>
 
       <div class='row'>
-        <label for="tags">Tags</label>
-        <div id="tag_container">
-          {{#snippet.tags}}
-            <div class="tag_wrapper">
-              <input class='add tags' type="array" id="tag{{@index}}" name="tags[]" value="{{.}}" />
-              <button type="button" class="button">-</button>
+          <div class='six columns'>
+
+            <div class='u-full-width'>
+              <label for="tags">Tags</label>
             </div>
-          {{/snippet.tags}}
-        </div>
 
-        <div class="row">
-          <input class='add tags' type="array" id="tag_add" value="" />
-          <button type="button" class="button-primary">+</button>
-        </div>
+            <div id="tag_container">
+              {{#snippet.tags}}
+                <div class="row">
+                  <input class='u-full-width' type="array" id="tag{{@index}}" name="tags[]" value="{{.}}" />
+                  <button type="button" class="button">-</button>
+                </div>
+              {{/snippet.tags}}
+            </div>
 
-        {{#if snippet._id}}
-          <input type="hidden" name="_id" value="{{snippet._id}}" />
-        {{/if}}
+            <div class='row'>
+              <input class='three columns' type="array" id="tag_add" value="" />
+              <button type="button" class="button-primary">+</button>
+            </div>
 
+            {{#if snippet._id}}
+              <input type="hidden" name="_id" value="{{snippet._id}}" />
+            {{/if}}
+
+          </div>
       </div>
 
         <div class="row">
