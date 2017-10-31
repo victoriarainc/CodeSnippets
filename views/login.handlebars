@@ -7,17 +7,32 @@
     <link rel="stylesheet" href="/css/skeleton.css">
   </head>
   <body>
-    <div class="wrapper">
-    <h1>Login</h1>
+    <div class="container">
 
-    <form class="login" action="/login" method="post">
-      <input type="text" name="username" placeholder="Username" /><br />
-      <input type="password" name="password" placeholder="Password" /><br />
-      <button>Login</button>
-    </form>
-        {{#if failed}}
-        Login failed. <a href="/register">Not a member? Register here.</a>
-        {{/if}}
+          <h1>Login</h1>
+
+          <form action="/login" method="post">
+            <div class='row'>
+              <div class='u-full-width'>
+                <input type="text" name="username" placeholder="Username" /><br />
+              </div>
+            </div>
+            <div class='row'>
+              <div class='u-full-width'>
+                <input type="password" name="password" placeholder="Password" /><br />
+              </div>
+            </div>
+            <button>Login</button>
+          </form>
+
+          {{#if failed}}
+          Login failed. <a href="/register">Not a member? Register here.</a>
+          {{/if}}
+
+          {{^if failed}}
+          Not a user? <a href="/register">Create an account.</a>
+          {{/if}}
+
     </div>
 
   </body>
