@@ -9,53 +9,75 @@
 </head>
 
 <body>
-  <a href="/logout">Logout</a>
-  <a href="/">Home</a>
-  <div class="wrapper" id="addWrapper">
+  <div class='container' id='nav'>
+    <div class='row'>
+      <div class='u-pull-right'>
+        <a href="/logout" class='button'>Logout</a>
+        <a href="/" class='button'>Home</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
     <form id="snippet_form" class="add" action="/snippets" method="post">
 
-      <div class='addInput'>
-        <label for="text">Title</label>
-        <input class='add' id='text' type="text" name="title" value="{{snippet.title}}" placeholder="Title" />
+      <div class='row'>
+        <div class='twelve columns'>
+          <label for="text">Title</label>
+          <input class='add' id='text' type="text" name="title" value="{{snippet.title}}" placeholder="Title" />
+        </div>
       </div>
 
-      <div class='addInput'>
-        <label for="body">Body</label>
-        <textarea class='add' id='body' name="body" value="{{snippet.body}}" placeholder="Body"></textarea>
+      <div class='row'>
+        <div class='twelve columns'>
+          <label for="body">Body</label>
+          <textarea class='u-full-width' id='body' name="body" value="{{snippet.body}}" placeholder="Body"></textarea>
+        </div>
       </div>
 
-      <div class='addInput'>
-        <label for="notes">Notes</label>
-        <textarea class='add' id='notes' name="notes" value="{{snippet.notes}}" placeholder="Notes"></textarea>
+      <div class='row'>
+        <div class='six columns'>
+          <label for="notes">Notes</label>
+          <textarea class='u-full-width' id='notes' name="notes" value="{{snippet.notes}}" placeholder="Notes"></textarea>
+        </div>
+
+        <div class='six columns'>
+          <label for="language">Language</label>
+          <input class='u-full-width' id='language' type="text" name="language" value="{{snippet.language}}" placeholder="Language" />
+        </div>
       </div>
 
-      <div class='addInput'>
-        <label for="language">Language</label>
-        <input class='add' id='language' type="text" name="language" value="{{snippet.language}}" placeholder="Language" />
-      </div>
-
-      <div class='addInput'>
+      <div class='row'>
         <label for="tags">Tags</label>
         <div id="tag_container">
           {{#snippet.tags}}
             <div class="tag_wrapper">
               <input class='add tags' type="array" id="tag{{@index}}" name="tags[]" value="{{.}}" />
-              <button type="button" class="tag_remove tag_button">-</button>
+              <button type="button" class="button">-</button>
             </div>
           {{/snippet.tags}}
         </div>
-        <div class="tag_wrapper">
+
+        <div class="row">
           <input class='add tags' type="array" id="tag_add" value="" />
-          <button type="button" class="tag_add tag_button">+</button>
+          <button type="button" class="button-primary">+</button>
         </div>
+
         {{#if snippet._id}}
           <input type="hidden" name="_id" value="{{snippet._id}}" />
         {{/if}}
-        <div class="delete_or_add">
-          <span class="delete"><a href="/deleteSnippet/?id={{snippet._id}}">Delete Snippet</a></span>
-          <button class="updateButton" name="add">Submit</button>
-        </div>
+
       </div>
+
+        <div class="row">
+          <div class="ten columns">
+            <span class="button"><a href="/deleteSnippet/?id={{snippet._id}}">Delete Snippet</a></span>
+          </div>
+
+          <div class="one column">
+            <button class="button-primary" name="add">Submit</button>
+          </div>
+        </div>
 
     </form>
   </div>
