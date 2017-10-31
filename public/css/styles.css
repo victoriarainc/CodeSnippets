@@ -19,13 +19,8 @@ button {
 }
 
 .wrapper {
-  width: 75%;
-  margin: 50px auto;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  align-self: center;
   flex-flow: column nowrap;
 }
 
@@ -109,8 +104,7 @@ form.add {
   display: flex;
   flex-flow: column nowrap;
   background-color: #81E6D3;
-  padding: 5%;
-  width: 70%;
+  width: 100%;
   margin-top: 5px;
 }
 
