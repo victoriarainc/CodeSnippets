@@ -7,16 +7,37 @@
     <link rel="stylesheet" href="/css/skeleton.css">
   </head>
   <body>
-    <div class="wrapper">
+    <div class="container">
       <h1>Register</h1>
 
-      <form class = "login" action="/register" method="post">
-        Username: <input type="text" name="username" /><br />
-        Name: <input type="text" name="name" /><br />
-        Email: <input type="text" name="email" /><br />
-        Password: <input type="password" name="password" /><br />
-        <button>Register</button>
+      <form action="/register" method="post">
+        <div class='row'>
+          <div class='eight columns'>
+            <label for="Username">Username</label>
+            <input class='u-full-width' type="text" name="username" />
+          </div>
+        </div>
+        <div class='row'>
+          <div class='eight columns'>
+            <label for='Name'>Name</label>
+            <input class='u-full-width' type="text" name="name" />
+          </div>
+        </div>
+        <div class='row'>
+          <div class='eight columns'>
+            <label for='Email'>Email</label>
+            <input class='u-full-width' type="text" name="email" />
+          </div>
+        </div>
+        <div class='row'>
+          <div class='eight columns'>
+            <label for ='Password'>Password</label>
+            <input class='u-full-width' type="password" name="password" />
+          </div>
+        </div>
+        <button class="button-primary">Register</button>
       </form>
 
+    </div>
   </body>
 </html>
