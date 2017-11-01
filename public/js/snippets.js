@@ -13,11 +13,9 @@ form.addEventListener('click', (event) => {
     if (tag_field.value !== '') {
       // display it to the page
       container.innerHTML += `
-        <div class='container'>
-          <div class='row'>
-            <input class='3 columns' type="array" name="tags[]" value="${tag_field.value}" />
-          </div>
-          <button type="button" class="tag_remove tag_button">-</button>
+        <div class='tag_wrapper'>
+            <input class='add' type="array" name="tags[]" value="${tag_field.value}" />
+            <button type="button" class="tag_remove">-</button>
         </div>
         `;
     }

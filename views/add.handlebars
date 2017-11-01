@@ -10,6 +10,7 @@
 </head>
 
 <body>
+  <!-- nav -->
   <div class='container' id='nav'>
     <div class='row'>
       <div class='u-pull-right'>
@@ -19,66 +20,63 @@
     </div>
   </div>
 
+    <!-- body -->
   <div class="container">
-
+      <!-- header -->
     <h2>New Snippet</h2>
-
+      <!-- form -->
     <form id="snippet_form" class="add" action="/snippets" method="post">
-
+        <!-- title -->
       <div class='row'>
         <div class='twelve columns'>
           <label for="text">Title</label>
           <input class='add' id='text' type="text" name="title" value="{{snippet.title}}" placeholder="Title" />
         </div>
       </div>
-
+          <!-- body -->
       <div class='row'>
         <div class='twelve columns'>
           <label for="body">Body</label>
           <textarea class='u-full-width' id='body' name="body" value="{{snippet.body}}" placeholder="Body"></textarea>
         </div>
       </div>
-
+          <!-- notes -->
       <div class='row'>
         <div class='six columns'>
           <label for="notes">Notes</label>
           <textarea class='u-full-width' id='notes' name="notes" value="{{snippet.notes}}" placeholder="Notes"></textarea>
         </div>
-
+          <!-- language -->
         <div class='six columns'>
           <label for="language">Language</label>
           <input class='u-full-width' id='language' type="text" name="language" value="{{snippet.language}}" placeholder="Language" />
         </div>
       </div>
-
+          <!-- tags -->
       <div class='row'>
-          <div class='six columns'>
 
-            <div class='u-full-width'>
-              <label for="tags">Tags</label>
-            </div>
+            <label for="tags">Tags</label>
+              <!-- tags fetched from database -->
+              <div id="tag_container">
+             {{#snippet.tags}}
+             <div class="tag_wrapper">
+               <input class='add tags' type="array" id="tag{{@index}}" name="tags[]" value="{{.}}" />
+               <button type="button" class="tag_remove tag_button">-</button>
+             </div>
+             {{/snippet.tags}}
+           </div>
+            <div class="tag_wrapper">
+             <input class='add tags' type="array" id="tag_add" value="" />
+             <button type="button" class="tag_add tag_button">+</button>
+           </div>
+          {{#if snippet._id}}
+            <input type="hidden" name="_id" value="{{snippet._id}}" />
+          {{/if}}
 
-            <div id="tag_container">
-              {{#snippet.tags}}
-                <div class="row">
-                  <input class='u-full-width' type="array" id="tag{{@index}}" name="tags[]" value="{{.}}" />
-                  <button type="button" class="button">-</button>
-                </div>
-              {{/snippet.tags}}
-            </div>
+            <br/>
 
-            <div class='row'>
-              <input class='three columns' type="array" id="tag_add" value="" />
-              <button type="button" class="button-primary">+</button>
-            </div>
 
-            {{#if snippet._id}}
-              <input type="hidden" name="_id" value="{{snippet._id}}" />
-            {{/if}}
-
-          </div>
-      </div>
-
+          <!-- delete and submit buttons -->
         <div class="row">
           <div class="ten columns">
             <span class="button"><a href="/deleteSnippet/?id={{snippet._id}}">Delete Snippet</a></span>
