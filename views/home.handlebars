@@ -20,39 +20,47 @@
   </div>
 
   <div class='container'>
+    <div class='six columns'>
 
-    <h2> {{user.name}}'s Snippets </h2>
+      <h2> {{user.name}}'s Snippets </h2>
 
-    <div class="row" id="snippets">
-      <div class='six columns'>
-        {{#snippets}}
-          <a href="/snippets/add?id={{ _id }}">
-            <p class="title">{{title}}</p>
-          </a>
-        {{/snippets}}
+      <div class="row" id="snippets">
+          {{#snippets}}
+            <a href="/snippets/add?id={{ _id }}">
+              <p class="title">{{title}}</p>
+            </a>
+          {{/snippets}}
       </div>
-    </div>
 
-    <div class='row'>
-      <div class='six columns'>
-        <div class='u-pull-right'>
-          <form action="/snippets/add" method="get">
-            <button name="add"> + </button>
+      <div class='row'>
+          <div class='u-pull-right'>
+            <form action="/snippets/add" method="get">
+              <button name="add"> + </button>
+            </form>
+          </div>
+      </div>
+
+      <div class='row'>
+          <form class='u-pull-right' action="/search" method="get">
+            <input type="text" name="mySnippets">
+            <button>Search</button>
           </form>
-        </div>
       </div>
+
     </div>
 
-    <div class='row'>
       <div class='six columns'>
-        <form class='u-pull-right' action="/search" method="get">
-          <input type="text" name="mySnippets">
-          <button>Search</button>
-        </form>
-      </div>
-    </div>
 
-  </div>
+        <div class='user_image'>Picture here.</div>
+        <div class='user_info'>
+          <p>First Name</p>
+          <p>Last Name</p>
+          <p>Username</p>
+          <p>Title</p>
+          <p>Location</p>
+        </div>
+        </div>
+    </div>
 </body>
 
 </html>
